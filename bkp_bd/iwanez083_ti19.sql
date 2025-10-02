@@ -56,6 +56,22 @@ INSERT INTO tbprodutos (id_produto, id_tipo_produto, descri_produto, resumo_prod
 (8, 1, 'Maminha', 'Vem da parte inferior da Alcatra. E uma carne com fibras, porém macia e saborosa.', 29.90, 'maminha.jpg', 'Não'),
 (9, 2, 'Abacaxiiiiiiii', 'Abacaxi assado com canela ao creme de leite condensado ', 29.90, 'abacaxi.jpg', 'Não');
 
+-- Criar tabela `tbusuarios`
+CREATE TABLE tbusuarios (
+    id_usuario INT NOT NULL,
+    login_usuario VARCHAR(30) NOT NULL,
+    senha_usuario VARCHAR(8) NOT NULL,
+    nivel_usuario ENUM('sup','com') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- Inserir dados na tabela `tbusuarios`
+INSERT INTO tbusuarios (id_usuario, login_usuario, senha_usuario, nivel_usuario) 
+    VALUES
+    (1, 'senac', '1234', 'sup'),
+    (2, 'joao', '456', 'com'),
+    (3, 'maria', '789', 'com'),
+    (4, 'iwanezuk', '1234', 'sup');
+
 -- ------ CHAVES ------
 ALTER TABLE tbprodutos
     ADD PRIMARY KEY (id_produto),
@@ -64,12 +80,20 @@ ALTER TABLE tbprodutos
 ALTER TABLE tbtipos
     ADD PRIMARY KEY (id_tipo);
 
+-- Índices para tabela tbusuarios
+ALTER TABLE tbusuarios	
+    ADD   PRIMARY KEY (id_usuario),
+    ADD   UNIQUE KEY login_usuario_uniq(login_usuario);
+
 -- ----- AUTO INCREMENTS -----
 ALTER TABLE tbprodutos
     MODIFY id_produto INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 ALTER TABLE tbtipos
     MODIFY id_tipo INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+ALTER TABLE tbusuarios
+    MODIFY id_usuario INT(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 -- Limitadores e referências da Chave Estrangeira
 ALTER TABLE tbprodutos
