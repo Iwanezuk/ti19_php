@@ -38,7 +38,9 @@ $totalRows  =   ($lista)->num_rows;
                 <th>ID</th>
                 <th>SIGLA</th>
                 <th>RÓTULO</th>
-                <th>ADICIONAR</th>
+                <th>
+                    <a href="tipos_insere.php">ADICIONAR</a>
+                </th>
             </tr>
         </thead>
         <!-- tbody>tr>td*4 -->
