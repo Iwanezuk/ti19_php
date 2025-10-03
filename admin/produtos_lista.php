@@ -27,6 +27,7 @@ $totalRows  =   ($lista)->num_rows;
     <link rel="stylesheet" href="../css/meu_estilo.css">
 </head>
 <body class="fundofixo">
+<?php include("menu_adm.php"); ?>
 <!-- main>h1 -->
 <main>
     <h1>Lista de Produtos</h1>
