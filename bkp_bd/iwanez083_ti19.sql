@@ -1,11 +1,11 @@
 -- Ti 19
 -- Backup Geral do banco de dados iwanez83_ti19
 -- Excluir o usuário iwanez83_ti19 caso ele exista
--- DROP USER IF EXISTS 'iwanez83_ti19'@'localhost';
+DROP USER IF EXISTS 'iwanez83_ti19'@'localhost';
 
 -- Criar o usuário iwanez83_ti19 se ele não existir
 CREATE USER IF NOT EXISTS 'iwanez83_ti19'@'localhost'
-    IDENTIFIED BY 'iwanez83_ti19';
+    IDENTIFIED BY 'senacti19';
 GRANT ALL PRIVILEGES ON *.* TO 'iwanez83_ti19'@'localhost'
     WITH GRANT OPTION;
     FLUSH PRIVILEGES;
