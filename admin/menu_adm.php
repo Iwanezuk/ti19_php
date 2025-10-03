@@ -30,6 +30,7 @@
                 <img src="../imagens/logochurrascopequeno.png" alt="">
             </a>
         </div> <!-- fecha navbar-header -->
+        
         <!-- nav direita -->
         <div class="collapse navbar-collapse" id="defaultNavbar">
             <ul class="nav navbar-nav navbar-right">
