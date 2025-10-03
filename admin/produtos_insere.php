@@ -88,7 +88,8 @@ $totalRows_fk   =   ($lista_fk)->num_rows;
     <!-- Link para CSS Específico -->
     <link rel="stylesheet" href="../css/meu_estilo.css">
 </head>
-<body>
+<body class="fundofixo">
+<?php include("menu_adm.php"); ?>
 <main class="container">
     <div> <!-- abre row -->
         <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-4" > <!-- abre dimensionamento -->
