@@ -65,7 +65,6 @@ $totalRows  =   ($lista)->num_rows;
                 <td><?php echo $row['id_produto']; ?></td>
                 <td><?php echo $row['id_tipo_produto']; ?></td>
                 <td>
-                    <!-- estrutura if/else para destaque -->
                     <?php
                         if($row['destaque_produto']=='Sim'){
                             echo('<span class="glyphicon glyphicon-heart text-danger"></span>');
