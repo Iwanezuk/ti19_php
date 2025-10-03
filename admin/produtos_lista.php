@@ -5,7 +5,7 @@ include("../Connections/conn_produtos.php");
 // Selecionar os dados
 $consulta   =   "
                 SELECT  *
-                FROM    tbprodutos
+                FROM    vw_tbprodutos
                 ORDER BY descri_produto ASC;
                 ";
 // Fazer uma lista completa dos dados
@@ -63,7 +63,10 @@ $totalRows  =   ($lista)->num_rows;
             <?php do{ ?>
             <tr>
                 <td><?php echo $row['id_produto']; ?></td>
-                <td><?php echo $row['id_tipo_produto']; ?></td>
+                <td>
+                    <span class="visible-xs"><?php echo $row['sigla_tipo']; ?></span>
+                    <span class="hidden-xs"><?php echo $row['rotulo_tipo']; ?></span>
+                </td>
                 <td>
                     <?php
                         if($row['destaque_produto']=='Sim'){
