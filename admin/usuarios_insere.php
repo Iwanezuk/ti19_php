@@ -135,6 +135,7 @@ if($_POST){
                                     name="nivel_usuario"
                                     id="nivel_usuario"
                                     value="com"
+                                    checked
                                 >
                                     Comum
                             </label>
@@ -147,7 +148,6 @@ if($_POST){
                                     name="nivel_usuario"
                                     id="nivel_usuario"
                                     value="sup"
-                                    checked
                                 >
                                 Supervisor
                             </label>
