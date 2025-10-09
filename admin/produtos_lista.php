@@ -103,12 +103,14 @@ $totalRows  =   ($lista)->num_rows;
                         <span class="hidden-xs">ALTERAR<br></span>
                         <span class="glyphicon glyphicon-refresh"></span>
                     </a>
-                    <a href="produtos_exclui.php?id_produto=<?php echo $row['id_produto']; ?>"
-                        class="btn btn-danger btn-xs btn-block"
+                    <button
+                        data-id="<?php echo $row['id_produto']; ?>"
+                        data-nome="<?php echo $row['descri_produto']; ?>"                        
+                        class="btn btn-danger btn-xs btn-block delete"
                     >
                         <span class="hidden-xs">EXCLUIR<br></span>
                         <span class="glyphicon glyphicon-trash"></span>
-                    </a>
+                </button>
                 </td>
             </tr>
             <?php }while($row = $lista->fetch_assoc());  ?>
@@ -117,9 +119,44 @@ $totalRows  =   ($lista)->num_rows;
     </table>
 </main>
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+
+                <h4 class="modal-title text-danger">ATENÇÃO!</h4>
+            </div> <!-- fecha modal-header -->
+            <div class="modal-body">
+                Deseja mesmo EXCLUIR o item?
+
+            </div> <!-- fecha modal-body -->
+            <div class="modal-footer">
+                <a href="">CONFIRMAR</a>
+                <button>Cancelar</button>
+            </div> <!-- fecha modal-footer -->
+        </div> <!-- fecha modal-content -->
+    </div> <!-- fecha modal-dialog -->
+</div> <!-- fecha modal -->
+
 <!-- Link arquivos Bootstrap js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>    
+<script src="../js/bootstrap.min.js"></script>   
+
+<!-- Script para o Modal -->
+<script type="text/javascript">
+    $('.delete').on('click',function(){
+        var nome    =   $(this).data('nome');
+        // buscar o valor do atributo data-nome
+        var id      =   $(this).data('id');
+        // buscar o valor do atributo data-id
+
+        $('#myModal').modal('show'); // abre modal
+    });
+
+</script>
+
+
 </body>
 </html>
 <?php mysqli_free_result($lista); ?>
