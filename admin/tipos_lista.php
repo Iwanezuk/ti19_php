@@ -68,14 +68,15 @@ $totalRows  =   ($lista)->num_rows;
                             <span class="hidden-xs">ALTERAR<br></span>
                             <span class="glyphicon glyphicon-refresh"></span>
                         </a>
-                        <button
+                        <a 
+                            href="tipos_exclui.php?id_tipo=<?php echo $row['id_tipo']; ?>"
                             class="btn btn-danger btn-xs btn-block delete"
                             data-nome="<?php echo $row['rotulo_tipo']; ?>"
                             data-id="<?php echo $row['id_tipo']; ?>"
                         >
                             <span class="hidden-xs">EXCLUIR<br></span>
                             <span class="glyphicon glyphicon-trash"></span>
-                        </button>
+                        </a>
 
                     </td>
                 </tr>
