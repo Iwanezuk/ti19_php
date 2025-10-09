@@ -110,7 +110,7 @@ $totalRows  =   ($lista)->num_rows;
                     >
                         <span class="hidden-xs">EXCLUIR<br></span>
                         <span class="glyphicon glyphicon-trash"></span>
-                </button>
+                    </button>
                 </td>
             </tr>
             <?php }while($row = $lista->fetch_assoc());  ?>
@@ -124,16 +124,30 @@ $totalRows  =   ($lista)->num_rows;
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-
+                <button
+                    type="button"
+                    class="close"
+                    data-dismiss="modal"
+                >
+                    &times;
+                </button>
                 <h4 class="modal-title text-danger">ATENÇÃO!</h4>
             </div> <!-- fecha modal-header -->
             <div class="modal-body">
                 Deseja mesmo EXCLUIR o item?
-
+                <h4><span class="nome text-danger"></span></h4>
             </div> <!-- fecha modal-body -->
             <div class="modal-footer">
-                <a href="">CONFIRMAR</a>
-                <button>Cancelar</button>
+                <a 
+                    href="#" 
+                    type="button" 
+                    class="btn btn-danger delete-yes"
+                >
+                    Confirmar
+                </a>
+                <button class="btn btn-success" data-dismiss="modal">
+                    Cancelar
+                </button>
             </div> <!-- fecha modal-footer -->
         </div> <!-- fecha modal-content -->
     </div> <!-- fecha modal-dialog -->
@@ -150,10 +164,12 @@ $totalRows  =   ($lista)->num_rows;
         // buscar o valor do atributo data-nome
         var id      =   $(this).data('id');
         // buscar o valor do atributo data-id
-
+        $('span.nome').text(nome);
+        // Inserir o nome do item na pergunta de confirmação
+        $('a.delete-yes').attr('href','produtos_exclui.php?id_produto='+id);
+        // mudar dinamicamente o id do link no botão confirmar
         $('#myModal').modal('show'); // abre modal
     });
-
 </script>
 
 
