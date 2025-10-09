@@ -103,12 +103,12 @@ $totalRows  =   ($lista)->num_rows;
                         <span class="hidden-xs">ALTERAR<br></span>
                         <span class="glyphicon glyphicon-refresh"></span>
                     </a>
-                    <button
+                    <a href="produtos_exclui.php?id_produto=<?php echo $row['id_produto']; ?>"
                         class="btn btn-danger btn-xs btn-block"
                     >
                         <span class="hidden-xs">EXCLUIR<br></span>
                         <span class="glyphicon glyphicon-trash"></span>
-                    </button>
+                    </a>
                 </td>
             </tr>
             <?php }while($row = $lista->fetch_assoc());  ?>
