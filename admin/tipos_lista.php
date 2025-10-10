@@ -68,15 +68,14 @@ $totalRows  =   ($lista)->num_rows;
                             <span class="hidden-xs">ALTERAR<br></span>
                             <span class="glyphicon glyphicon-refresh"></span>
                         </a>
-                        <a 
-                            href="tipos_exclui.php?id_tipo=<?php echo $row['id_tipo']; ?>"
+                        <button 
                             class="btn btn-danger btn-xs btn-block delete"
                             data-nome="<?php echo $row['rotulo_tipo']; ?>"
                             data-id="<?php echo $row['id_tipo']; ?>"
                         >
                             <span class="hidden-xs">EXCLUIR<br></span>
                             <span class="glyphicon glyphicon-trash"></span>
-                        </a>
+                        </button>
 
                     </td>
                 </tr>
@@ -89,7 +88,23 @@ $totalRows  =   ($lista)->num_rows;
 
 <!-- Link arquivos Bootstrap js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>    
+<script src="../js/bootstrap.min.js"></script>  
+
+<!-- Scrip para o Modal -->
+ <script type="text/javascript">
+    $('.delete').on('click',function(){
+        var nome    =   $(this).data('nome');
+        // buscar o valor do atributo data-nome
+        var id      =   $(this).data('id');
+        // buscar o valor do atributo data-nome
+        $('span.nome').text(nome);
+        // Inserir o nome do item no modal
+
+        $('#myModal').modal('show'); // abre modal
+    });
+ </script>
+
+
 </body>
 </html>
 <?php mysqli_free_result($lista); ?>
