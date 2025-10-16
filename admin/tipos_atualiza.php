@@ -6,37 +6,27 @@ include("../Connections/conn_produtos.php");
 $tabela         =   "tbtipos";
 $campo_filtro   =   "id_tipo";
 
-/*
+
 if($_POST){
     // Selecionar o banco de dados (USE)
     mysqli_select_db($conn_produtos,$database_conn);
-
-    // Variáveis para acrescentar dados no banco
-    $tabela_insert  =   "tbtipos";
-    $campos_insert  =   "
-                            rotulo_tipo,
-                            sigla_tipo
-                        ";
 
     // Receber os dados do formulário
     // Organizar os campos na mesma ordem
     $rotulo_tipo    =   $_POST['rotulo_tipo'];
     $sigla_tipo     =   $_POST['sigla_tipo'];
 
-    // Reunir os valores a serem inseridos
-    $valores_insert =   "
-                        '$rotulo_tipo',
-                        '$sigla_tipo'
-                        ";
+    // Campo para filtrar o registro (WHERE)
+    $filtro_update  =   $_POST['id_tipo'];
 
-    // Consulta SQL para inserção dos dados
-    $insertSQL  =   "
-                    INSERT INTO ".$tabela_insert."
-                        (".$campos_insert.")
-                    VALUES
-                        (".$valores_insert.");
+    // Consulta SQL para ATUALIZAÇÃO dos dados
+    $updateSQL  =   "
+                    UPDATE ".$tabela."
+                        SET sigla_tipo  =   '".$sigla_tipo."'   ,
+                            rotulo_tipo =   '".$rotulo_tipo."'
+                    WHERE ".$campo_filtro."='".$filtro_update."';
                     ";
-    $resultado  =   $conn_produtos->query($insertSQL);
+    $resultado  =   $conn_produtos->query($updateSQL);
 
     // Após a ação a página será redirecionada
     $destino    =   "tipos_lista.php";
@@ -46,7 +36,6 @@ if($_POST){
         header("Location: $destino");
     };
 };
-*/
 
 // Consulta para trazer e filtrar os dados
 // Definir o USE do banco de dados
