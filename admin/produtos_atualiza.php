@@ -129,6 +129,14 @@ $totalRows_fk   =   ($lista_fk)->num_rows;
                         id="form_produto_atualiza"
                         name="form_produto_atualiza"
                     >
+                        <!-- Campo oculto id_produto para uso em filtro -->
+                        <input 
+                            type="hidden" 
+                            name="id_produto"
+                            id="id_produto"
+                            value="<?php echo $row['id_produto']; ?>"
+                        >
+
                         <!-- Select id_tipo_produto -->
                         <label for="id_tipo_produto">Tipo:</label>
                         <div class="input-group">
@@ -144,8 +152,14 @@ $totalRows_fk   =   ($lista_fk)->num_rows;
                             >
                                 <!-- Abre estrutura de repetição -->
                                 <?php do{ ?>
-                                    <option value="<?php echo $row_fk['id_tipo']; ?>">
-                                        <?php echo $row_fk['rotulo_tipo']; ?>
+                                    <option value="<?php echo $row_fk['id_tipo']; ?>"
+                                        <?php 
+                                            if(!(strcmp($row_fk['id_tipo'],$row['id_tipo_produto']))){
+                                                echo "selected=\"selected\"";
+                                            }
+                                        ?>
+                                    >
+                                        <?php echo $row_fk['rotulo_tipo']; ?> 
                                     </option>
                                 <?php }while($row_fk=$lista_fk->fetch_assoc()); ?>
                                 <!-- Fecha estrutura de repetição -->
@@ -166,6 +180,7 @@ $totalRows_fk   =   ($lista_fk)->num_rows;
                                     name="destaque_produto"
                                     id="destaque_produto"
                                     value="Sim"
+                                    <?php echo $row['destaque_produto']=="Sim" ? "checked" : null; ?>
                                 >
                                 Sim
                             </label>
@@ -178,7 +193,7 @@ $totalRows_fk   =   ($lista_fk)->num_rows;
                                     name="destaque_produto"
                                     id="destaque_produto"
                                     value="Não"
-                                    checked
+                                    <?php echo $row['destaque_produto']=="Não" ? "checked" : null; ?>
                                 >
                                 Não
                             </label>
@@ -243,8 +258,29 @@ $totalRows_fk   =   ($lista_fk)->num_rows;
                         <!-- fecha number valor_produto -->
                         <br>
 
+                        <!-- Dados da imagem_produto ATUAL -->                        
+                        <label for="">Imagem ATUAL:</label>
+                        <br>
+                        <img 
+                            src="../imagens/<?php echo $row['imagem_produto']; ?>" 
+                            alt=""
+                            class="img_responsive"
+                            style="max-width:40%"
+                        >
+                        <br>
+
+                        <!-- type="hidden" campo oculto somente para guardar dados -->
+                        <!-- guardamos o nome da imagem caso não seja alterada -->
+                        <input 
+                            type="hidden"
+                            name="imagem_produto_atual"
+                            id="imagem_produto_atual"
+                            value="<?php echo $row['imagem_produto']; ?>"
+                        >
+                        <br>
+
                         <!-- file imagem_produto -->
-                        <label for="imagem_produto">Imagem:</label>
+                        <label for="imagem_produto">NOVA Imagem:</label>
                         <div class="input-group">
                             <span class="input-group-addon">
                                 <span class="glyphicon glyphicon-picture"></span>
