@@ -55,7 +55,7 @@ if($_POST){     // ATUALIZANDO NO BANCO DE DADOS
 };
 
 // Consulta para trazer e filtrar os dados
-// Definir o USE do banoc de dados;
+// Definir o USE do banco de dados;
 mysqli_select_db($conn_produtos,$database_conn);
 $filtro_select    =   $_GET['id_produto'];
 $consulta           =   "
