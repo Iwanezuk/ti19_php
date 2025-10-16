@@ -6,7 +6,6 @@ include("../Connections/conn_produtos.php");
 $tabela         =   "tbprodutos";
 $campo_filtro   =   "id_produto";
 
-
 if($_POST){     // ATUALIZANDO NO BANCO DE DADOS
     // Selecionar o banco de dados (USE)
     mysqli_select_db($conn_produtos,$database_conn);
@@ -54,7 +53,6 @@ if($_POST){     // ATUALIZANDO NO BANCO DE DADOS
         header("Location: $destino");
     };
 };
-
 
 // Consulta para trazer e filtrar os dados
 // Definir o USE do banoc de dados;
