@@ -2,6 +2,10 @@
 // Incluir o arquivo e fazer a conexão
 include("../Connections/conn_produtos.php");
 
+// Variáveis Globais
+$tabela         =   "tbtipos";
+$campo_filtro   =   "id_tipo";
+
 /*
 if($_POST){
     // Selecionar o banco de dados (USE)
@@ -43,6 +47,20 @@ if($_POST){
     };
 };
 */
+
+// Consulta para trazer e filtrar os dados
+// Definir o USE do banco de dados
+mysqli_select_db($conn_produtos,$database_conn);
+$filtro_select  =   $_GET['id_tipo'];
+$consulta       =   "
+                    SELECT *
+                    FROM    ".$tabela."
+                    WHERE   ".$campo_filtro."=".$filtro_select.";
+                    ";
+$lista          =   $conn_produtos->query($consulta);
+$row            =   $lista->fetch_assoc();
+$totalRows      =   ($lista)->num_rows;
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -77,6 +95,14 @@ if($_POST){
                         id="form_atualiza_tipo"
                         name="form_atualiza_tipo"
                     >
+                        <!-- Inserir campo id_tipo OCULTO para uso em filtro -->
+                        <input 
+                            type="hidden"
+                            name="id_tipo"
+                            id="id_tipo"
+                            value="<?php echo $row['id_tipo']; ?>"
+                        >
+
                         <!-- text rotulo_tipo -->
                         <label for="rotulo_tipo">Rótulo:</label>
                         <div class="input-group">
@@ -92,6 +118,7 @@ if($_POST){
                                 maxlength="15"
                                 required
                                 placeholder="Digite o rótulo do tipo."
+                                value="<?php echo $row['rotulo_tipo']; ?>"
                             >
                         </div> <!-- fecha input-group -->
                         <!-- fecha text rotulo_tipo -->
@@ -111,6 +138,7 @@ if($_POST){
                                 maxlength="3"
                                 required
                                 placeholder="Digite a sigla do tipo."
+                                value="<?php echo $row['sigla_tipo']; ?>"
                             >
                         </div> <!-- fecha input-group -->
                         <!-- fecha text sigla_tipo -->
@@ -119,7 +147,7 @@ if($_POST){
                         <!-- btn enviar -->
                         <input 
                             type="submit" 
-                            value="Cadastrar"
+                            value="Atualizar"
                             name="enviar"
                             id="enviar"
                             role="button"
@@ -139,3 +167,4 @@ if($_POST){
 <script src="../js/bootstrap.min.js"></script>    
 </body>
 </html>
+<?php mysqli_free_result($lista); ?>
