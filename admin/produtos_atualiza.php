@@ -6,28 +6,19 @@ include("../Connections/conn_produtos.php");
 $tabela         =   "tbprodutos";
 $campo_filtro   =   "id_produto";
 
-/*
-if($_POST){
+
+if($_POST){     // ATUALIZANDO NO BANCO DE DADOS
     // Selecionar o banco de dados (USE)
     mysqli_select_db($conn_produtos,$database_conn);
 
-    // Variáveis para acrescentar dados no banco
-    $tabela_insert  =   "tbprodutos";
-    $campos_insert  =   "
-                            id_tipo_produto,
-                            destaque_produto,
-                            descri_produto,
-                            resumo_produto,
-                            valor_produto,
-                            imagem_produto
-                        ";
-
     // Guardar o nome da imagem no banco e o arquivo no diretório
-    if(isset($_POST['enviar'])){
+    if($_FILES['imagem_produto']['name']){
         $nome_img   =   $_FILES['imagem_produto']['name'];
         $tmp_img    =   $_FILES['imagem_produto']['tmp_name'];
         $dir_img    =   "../imagens/".$nome_img;
         move_uploaded_file($tmp_img,$dir_img);
+    }else{
+        $nome_img=$_POST['imagem_produto_atual'];
     };
 
     // Receber os dados do formulário
@@ -37,26 +28,23 @@ if($_POST){
     $descri_produto     =   $_POST['descri_produto'];
     $resumo_produto     =   $_POST['resumo_produto'];     
     $valor_produto      =   $_POST['valor_produto'];
-    $imagem_produto     =   $_FILES['imagem_produto']['name'];
+    $imagem_produto     =   $nome_img;
 
-    // Reunir os valores a serem inseridos
-    $valores_insert =   "
-                        '$id_tipo_produto',
-                        '$destaque_produto',
-                        '$descri_produto',
-                        '$resumo_produto',
-                        '$valor_produto',
-                        '$imagem_produto'
-                        ";
+    // Campo para filtrar o registro (WHERE)
+    $filtro_update      =   $_POST['id_produto'];
 
-    // Consulta SQL para inserção dos dados
-    $insertSQL  =   "
-                    INSERT INTO ".$tabela_insert."
-                        (".$campos_insert.")
-                    VALUES
-                        (".$valores_insert.");
+    // Consulta SQL para ATUALIZAÇÃO dos dados
+    $updateSQL  =   "
+                    UPDATE ".$tabela."
+                        SET id_tipo_produto =   '".$id_tipo_produto."'  ,
+                            destaque_produto=   '".$destaque_produto."' ,    
+                            descri_produto  =   '".$descri_produto."'   ,
+                            resumo_produto  =   '".$resumo_produto."'   ,
+                            valor_produto   =   '".$valor_produto."'    ,
+                            imagem_produto  =   '".$imagem_produto."'   
+                    WHERE ".$campo_filtro." =   '".$filtro_update."';
                     ";
-    $resultado  =   $conn_produtos->query($insertSQL);
+    $resultado  =   $conn_produtos->query($updateSQL);
 
     // Após a ação a página será redirecionada
     $destino    =   "produtos_lista.php";
@@ -66,7 +54,7 @@ if($_POST){
         header("Location: $destino");
     };
 };
-*/
+
 
 // Consulta para trazer e filtrar os dados
 // Definir o USE do banoc de dados;
