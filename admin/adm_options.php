@@ -48,7 +48,71 @@
     </div> <!-- fecha dimensionamento -->
 
     <!-- ADM TIPOS -->
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail alert-warning">
+            <img src="../imagens/icone_tipos.png" alt="">
+            <br>
+            <div class="alert-warning">
+                <!-- botão principal -->
+                 <div class="btn-group btn-group-justified" role="group">
+                    <div class="btn-group">
+                        <button 
+                            class="btn btn-default disabled"
+                            style="cursor: default;"
+                        >
+                            TIPOS
+                        </button>
+                    </div> <!-- fecha btn-group -->
+                 </div> <!-- fecha btn-group-justified -->
+                 <div class="btn-group btn-group-justified" role="group">
+                    <div class="btn-group"> <!-- botão Listar -->
+                        <a href="tipos_lista.php">
+                            <button class="btn btn-warning">Listar</button>
+                        </a>
+                    </div> <!-- fecha btn-group Listar -->
+                    <div class="btn-group"> <!-- botão Inserir -->
+                        <a href="tipos_insere.php">
+                            <button class="btn btn-warning">Inserir</button>
+                        </a>
+                    </div> <!-- fecha btn-group Inserir -->
+                 </div> <!-- fecha btn-group-justified -->
+            </div> <!-- fecha alert-warning -->
+        </div> <!-- fecha thumbnail -->
+    </div> <!-- fecha dimensionamento -->
 
+    <!-- ADM USUÁRIOS -->
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail alert-info">
+            <img src="../imagens/icone_user.png" alt="">
+            <br>
+            <div class="alert-info">
+                <!-- botão principal -->
+                 <div class="btn-group btn-group-justified" role="group">
+                    <div class="btn-group">
+                        <button 
+                            class="btn btn-default disabled"
+                            style="cursor: default;"
+                        >
+                            USUÁRIOS
+                        </button>
+                    </div> <!-- fecha btn-group -->
+                 </div> <!-- fecha btn-group-justified -->
+                 <div class="btn-group btn-group-justified" role="group">
+                    <div class="btn-group"> <!-- botão Listar -->
+                        <a href="usuarios_lista.php">
+                            <button class="btn btn-info">Listar</button>
+                        </a>
+                    </div> <!-- fecha btn-group Listar -->
+                    <div class="btn-group"> <!-- botão Inserir -->
+                        <a href="usuarios_insere.php">
+                            <button class="btn btn-info">Inserir</button>
+                        </a>
+                    </div> <!-- fecha btn-group Inserir -->
+                 </div> <!-- fecha btn-group-justified -->
+            </div> <!-- fecha alert-info -->
+        </div> <!-- fecha thumbnail -->
+    </div> <!-- fecha dimensionamento -->
+    
 </div> <!-- fecha row -->
 </main>
 
