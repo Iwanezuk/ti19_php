@@ -37,7 +37,7 @@ $totalRows  =   ($lista)->num_rows;
     <div class="col-sm-6 col-md-4"> <!-- dimensionamento -->
         <div class="thumbnail">
             <a 
-                href="produto_detalhe?id_produto=<?php echo $row['id_produto']; ?>" 
+                href="produto_detalhe.php?id_produto=<?php echo $row['id_produto']; ?>" 
             >
                 <img 
                     src="imagens/<?php echo $row['imagem_produto']; ?>" 
@@ -61,7 +61,7 @@ $totalRows  =   ($lista)->num_rows;
                         <?php echo number_format($row['valor_produto'],2,',','.'); ?>
                     </button>
                     <a 
-                        href="produto_detalhe?id_produto=<?php echo $row['id_produto']; ?>" 
+                        href="produto_detalhe.php?id_produto=<?php echo $row['id_produto']; ?>" 
                         class="btn btn-danger" 
                         role="button"
                     >
