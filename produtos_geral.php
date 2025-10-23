@@ -25,31 +25,33 @@ $totalRows  =   ($lista)->num_rows;
     <!-- Link para CSS Específico -->
     <link rel="stylesheet" href="css/meu_estilo.css">
 </head>
-<body>
+<body class="container">
 <h2 class="breadcrumb alert-danger">Produtos</h2>
 <div class="row"> <!-- manter os elementos na linha (poliça) -->
     
     <!-- Abre thumbnail/card -->
+    <?php do{ ?> <!-- Abre a estrutura de repetição -->
     <div class="col-sm-6 col-md-4"> <!-- dimensionamento -->
         <div class="thumbnail">
             <img 
-                src="imagens/abacaxi.jpg" 
+                src="imagens/<?php echo $row['imagem_produto']; ?>" 
                 alt=""
                 class="img-responsive img-rounded"
+                style="height: 20em;"
             >
             <div class="caption text-right">
                 <h3 class="text-danger">
-                    <strong>descri_produto</strong>
+                    <strong><?php echo $row['descri_produto']; ?></strong>
                 </h3>
                 <p class="text-warning">
-                    <strong>rotulo_tipo</strong>
+                    <strong><?php echo $row['rotulo_tipo']; ?></strong>
                 </p>
                 <p class="text-left">
-                    resumo_produto
+                    <?php echo mb_strimwidth($row['resumo_produto'],0,42,"..."); ?>
                 </p>
                 <p>
                     <button class="btn btn-default disabled" role="button">
-                        valor_produto
+                        <?php echo number_format($row['valor_produto'],2,',','.'); ?>
                     </button>
                     <a href="" class="btn btn-danger" role="button">
                         <span class="hidden-xs">Saiba mais...</span>
@@ -59,6 +61,8 @@ $totalRows  =   ($lista)->num_rows;
             </div> <!-- fecha caption -->
         </div> <!-- fecha thumbnail -->
     </div> <!-- fecha dimensionamento -->
+    <?php }while($row=$lista->fetch_assoc()); ?> 
+    <!-- Fecha a estrutura de repetição -->
     <!-- Fecha thumbnail/card -->
 
 </div> <!-- fecha row -->
