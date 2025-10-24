@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/meu_estilo.css">
 </head>
 <body>
+<!-- Abre a barra de navegação -->
 
 <!-- Link arquivos Bootstrap js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
