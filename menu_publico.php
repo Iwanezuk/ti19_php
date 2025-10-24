@@ -1,3 +1,19 @@
+<?php
+// Incluir o arquivo para fazer a conexão
+include("Connections/conn_produtos.php");
+
+// Consulta para trazer os dados
+$tabela_menu    =   "tbtipos";
+$ordernar_menu  =   "rotulo_tipo";
+$consulta_menu  =   "
+                    SELECT  *
+                    FROM    ".$tabela_menu."
+                    ORDER BY ".$ordernar_menu.";
+                    ";
+$lista_menu     =   $conn_produtos->query($consulta_menu);
+$row_menu       =   $lista_menu->fetch_assoc();
+$totalRows_menu =   ($lista_menu)->num_rows;
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -13,13 +29,14 @@
 <!-- Abre a barra de navegação -->
 <nav class="navbar navbar-inverse">
 <div class="container-fluid">
-    <div class="nav-header"><!-- Agrupamento MOBILE -->
+    <div class="navbar-header"><!-- Agrupamento MOBILE -->
         <a href="index.php" class="navbar-brand">
             <img src="imagens/logochurrascopequeno.png" alt="">
         </a>
         <button
             type="button"
             class="navbar-toggle collapsed"
+            data-toggle="collapse"
             data-target="#defaultNavbar"
             aria-expanded="false"
         >
@@ -40,7 +57,7 @@
             <li><a href="index.php#produtos">PRODUTOS</a></li>
             <li class="dropdown">
                 <a 
-                    href=""
+                    href="produtos_tipo.php"
                     class="dropdown-toggle"
                     data-toggle="dropdown"
                     role="button"
@@ -50,10 +67,16 @@
                     TIPOS
                     <span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu">
-                    <li><a href="">Churrasco</a></li>
-                    <li><a href="">Sobremesa</a></li>
-                </ul>
+<ul class="dropdown-menu">
+    <?php do{ ?> <!-- abre estrutura de repetição -->
+        <li>
+            <a href="produtos_por_tipo.php?id_tipo=<?php echo $row_menu['id_tipo']; ?>">
+                <?php echo $row_menu['rotulo_tipo']; ?>
+            </a>
+        </li>
+    <?php } while ($row_menu=$lista_menu->fetch_assoc()); ?>
+    <!-- Fecha estrutura de repetição -->
+</ul>
             </li> <!-- fecha dropdown -->
             <li><a href="index.php#contato">CONTATO</a></li>
             <!-- Form Busca -->
@@ -73,3 +96,4 @@
 <script src="js/bootstrap.min.js"></script>    
 </body>
 </html>
+<?php mysqli_free_result($lista_menu); ?>
