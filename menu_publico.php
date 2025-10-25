@@ -57,7 +57,7 @@ $totalRows_menu =   ($lista_menu)->num_rows;
             <li><a href="index.php#produtos">PRODUTOS</a></li>
             <li class="dropdown">
                 <a 
-                    href="produtos_tipo.php"
+                    href="produtos_tipos.php"
                     class="dropdown-toggle"
                     data-toggle="dropdown"
                     role="button"
