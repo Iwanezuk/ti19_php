@@ -80,6 +80,36 @@ $totalRows_menu =   ($lista_menu)->num_rows;
             </li> <!-- fecha dropdown -->
             <li><a href="index.php#contato">CONTATO</a></li>
             <!-- Form Busca -->
+            <form 
+                action="produtos_busca.php"
+                method="get"
+                name="form_busca"
+                id="form_busca"
+                class="navbar-form navbar-left"
+                role="search"
+            >
+                <div class="form-group">
+                    <div class="input-group">
+                        <input 
+                            type="text"
+                            class="form-control"
+                            placeholder="Busca Produto"
+                            name="buscar"
+                            id="buscar"
+                            size="9"
+                            required
+                        >
+                        <span class="input-group-btn">
+                            <button 
+                                type="submit" 
+                                class="btn btn-default"
+                            >
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div> <!-- fecha input-group -->
+                </div> <!-- fecha form-group -->
+            </form>
             <li class="active">
                 <a href="admin/index.php">
                     <span class="glyphicon glyphicon-user"></span>
