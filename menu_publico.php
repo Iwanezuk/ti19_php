@@ -67,16 +67,21 @@ $totalRows_menu =   ($lista_menu)->num_rows;
                     TIPOS
                     <span class="caret"></span>
                 </a>
-<ul class="dropdown-menu">
-    <?php do{ ?> <!-- abre estrutura de repetição -->
-        <li>
-            <a href="produtos_por_tipo.php?id_tipo=<?php echo $row_menu['id_tipo']; ?>">
-                <?php echo $row_menu['rotulo_tipo']; ?>
-            </a>
-        </li>
-    <?php } while ($row_menu=$lista_menu->fetch_assoc()); ?>
-    <!-- Fecha estrutura de repetição -->
-</ul>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="produtos_tipos.php">
+                            TODOS
+                        </a>
+                    </li>
+                    <?php do{ ?> <!-- abre estrutura de repetição -->
+                        <li>
+                            <a href="produtos_por_tipo.php?id_tipo=<?php echo $row_menu['id_tipo']; ?>">
+                                <?php echo $row_menu['rotulo_tipo']; ?>
+                            </a>
+                        </li>
+                    <?php } while ($row_menu=$lista_menu->fetch_assoc()); ?>
+                    <!-- Fecha estrutura de repetição -->
+                </ul>
             </li> <!-- fecha dropdown -->
             <li><a href="index.php#contato">CONTATO</a></li>
             <!-- Form Busca -->
