@@ -26,7 +26,12 @@ $totalRows  =   ($lista)->num_rows;
     <link rel="stylesheet" href="css/meu_estilo.css">
 </head>
 <body class="container">
-<h2 class="breadcrumb alert-danger">Tipos de Produto</h2>
+<h2 class="breadcrumb alert-danger">
+    <a href="javascript:window.history.go(-1)" class="btn btn-danger">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    Produtos por Tipo
+</h2>
 
 <?php
 // Variável para controlar o grupo atual
