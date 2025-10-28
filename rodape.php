@@ -81,10 +81,54 @@
 <div class="col-sm-6 col-md-4" >
     <div class="panel-footer" style="background:none;">
         <h4>CONTATO</h4>
+        <form 
+            action="rodape_contato_envia.php"
+            name="form_contato"
+            id="form_contato"
+            method="post"
+        >
+            <!-- input group NOME -->
+            <p>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon1">
+                        <span class="glyphicon glyphicon-user"></span>
+                    </span>
+                    <input 
+                        type="text"
+                        name="nome_contato"
+                        id="nome_contato"
+                        placeholder="Digite seu nome."
+                        aria-describedby="basic-addon1"
+                        required
+                        class="form-control"
+                    >
+                </div> <!-- fecha input-group -->
+            </p>
+
+            <!-- construa o input group email use glyphicon-envelope -->
+
+            <!-- construa o textarea comentários use glyphicon-pencil -->
+
+            <!-- construa o botão enviar use glyphicon-send -->
+
+        </form>
     </div> <!-- fecha panel-footer --> 
 </div> <!-- fecha dimensionamento / área -->
 
-</div> <!-- fecha painel de rodapé -->
+<!-- ÁREA DE DESENVOLVEDOR -->
+<div class="col-sm-12" >
+    <div class="panel-footer" style="background:none;">
+        <h6 class="text-danger text-center">
+            Developed by Iwanezuk&trade; 2025
+            <br>
+            <a href="https://www.iwanezuk.com.br">
+                www.iwanezuk.com.br
+            </a>
+        </h6>
+    </div> <!-- fecha panel-footer --> 
+</div> <!-- fecha dimensionamento / área -->    
+
+</div> <!-- fecha painel principal do rodapé -->
 
 <!-- Link arquivos Bootstrap js -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
