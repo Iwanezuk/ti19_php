@@ -42,6 +42,38 @@
 <div class="col-sm-6 col-md-4" >
     <div class="panel-footer" style="background:none;">
         <h4>LINKS</h4>
+        <ul class="nav nav-pills nav-stacked">
+            <li>
+                <a href="index.php#home" class="text-danger">
+                    <span class="glyphicon glyphicon-home">&nbsp;HOME</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php#destaques" class="text-danger">
+                    <span class="glyphicon glyphicon-fire">&nbsp;DESTAQUES</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php#produtos" class="text-danger">
+                    <span class="glyphicon glyphicon-cutlery">&nbsp;PRODUTOS</span>
+                </a>
+            </li>
+            <li>
+                <a href="produtos_tipos.php" class="text-danger">
+                    <span class="glyphicon glyphicon-tasks">&nbsp;TIPOS</span>
+                </a>
+            </li>
+            <li>
+                <a href="index.php#contato" class="text-danger">
+                    <span class="glyphicon glyphicon-send">&nbsp;CONTATO</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin/index.php" class="text-danger">
+                    <span class="glyphicon glyphicon-user">&nbsp;ADMINISTRAÇÃO</span>
+                </a>
+            </li>
+        </ul>
     </div> <!-- fecha panel-footer --> 
 </div> <!-- fecha dimensionamento / área -->
 
