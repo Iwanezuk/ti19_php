@@ -105,12 +105,48 @@
                 </div> <!-- fecha input-group -->
             </p>
 
-            <!-- construa o input group email use glyphicon-envelope -->
-
+           <!-- construa o input group email use glyphicon-envelope -->
+           <p>
+            <div class="input-group">
+                <span class="input-group-addon" id="basic-addon2">
+                    <span class="glyphicon glyphicon-envelope"></span>
+                </span>
+                <input 
+                    type="email" 
+                    name="email_contato" 
+                    id="email_contato" 
+                    placeholder="Digite seu email" 
+                    aria-describedby="basic-addon2" 
+                    required 
+                    class="form-control"
+                >
+            </div>
+            </p>    
             <!-- construa o textarea comentários use glyphicon-pencil -->
-
-            <!-- construa o botão enviar use glyphicon-send -->
-
+            <p>
+                <div class="input-group">
+                    <span class="input-group-addon" id="basic-addon3">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </span>
+                    <textarea 
+                        name="comentarios_contato" 
+                        id="comentarios_contato" 
+                        cols="30" 
+                        rows="5" 
+                        placeholder="Comentários, dúvidas e/ou sugestões."
+                        aria-describedby="basic-addon3" 
+                        required 
+                        class="form-control"
+                    ></textarea>
+                </div>
+            </p>
+            <!-- construa o botão enviar use glyphicon-send -->     
+            <p>
+                <button class="btn btn-danger btn-block" aria-label="Enviar">
+                    Enviar
+                    <span class="glyphicon glyphicon-send"></span>
+                </button>
+            </p>
         </form>
     </div> <!-- fecha panel-footer --> 
 </div> <!-- fecha dimensionamento / área -->
