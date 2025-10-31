@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Após 15 segundos a página sera redirecionada para index.php -->
-
+    <meta http-equiv="refresh" content="15;URL=index.php">
     <title>Verificação do Contato</title>
 </head>
 <body class="fundofixo">
@@ -20,16 +20,19 @@
                 $msg_contato    =   "Mensagem de:".$nome_contato."\n".$_POST['comentarios_contato'];
                 $mailsend   =   mail($destino,"Formulário de comentário",$msg_contato,"From:",$email_contato);
             ?>
-            <p>
-                Obrigado por enviar seus comentários,
-                <b><?php echo $nome_contato; ?></b>!
-            </p>
-            <p>Mensagem enviada com sucesso!</p>
-            <h5>
-                Caso não visualize a mensagem de agradecimento,
-                entre em contato através do email
-                <b><i><?php echo $destino; ?></i></b>
-            </h5>
+            <div class="text-center">
+                <p>
+                    Obrigado por enviar seus comentários,
+                    <b><?php echo $nome_contato; ?></b>!
+                </p>
+                <p>Mensagem enviada com sucesso!</p>
+                <h5>
+                    Caso não visualize a mensagem de agradecimento,
+                    entre em contato através do email
+                    <br>
+                    <b><i><?php echo $destino; ?></i></b>
+                </h5>
+            </div> <!-- fecha text-center -->
         </div> <!-- fecha jumbotron -->
 
     </section>
