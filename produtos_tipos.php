@@ -30,7 +30,7 @@ $totalRows  =   ($lista)->num_rows;
 <?php include('menu_publico.php'); ?>
 <main class="container">
 <!-- CARROUSSEL -->
-<?php include('carroussel.php'); ?>
+<?php //include('carroussel.php'); ?>
 
 <h2 class="breadcrumb alert-danger">
     <a href="javascript:window.history.go(-1)" class="btn btn-danger">
