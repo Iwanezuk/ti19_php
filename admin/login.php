@@ -1,3 +1,32 @@
+<?php
+// Incluir o arquivo e fazer a conexão
+include("../Connections/conn_produtos.php");
+
+// Iniciar a verificação do login
+if($_POST){
+    // Definir o USE do banco de dados
+    mysqli_select_db($conn_produtos,$database_conn);
+
+    // Verificar o login e a senha recebidos
+    $login_usuario  =   $_POST['login_usuario'];
+    $senha_usuario  =   $_POST['senha_usuario'];
+
+    $verificaSQL    =   "
+                        SELECT  *
+                        FROM    tbusuarios
+                        WHERE   login_usuario='$login_usuario'
+                                AND senha_usuario='$senha_usuario';
+                        ";
+    // Carregar os dados e verificar as linhas
+    $lista_session      =   mysqli_query($conn_produtos,$verificaSQL);
+    $row_session        =   $lista_session->fetch_assoc();
+    $totalRows_session  =   mysqli_num_rows($lista_session);
+
+    // Se a sessão não existir, inicia uma
+
+};
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
