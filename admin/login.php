@@ -26,12 +26,15 @@ if($_POST){
     if(!isset($_SESSION)){
         $sessao_antiga  =   session_name("chuletaaa");
         session_start();
-        $session_name_new   =   session_name(); recupero o nome da atual sessão
+        $session_name_new   =   session_name(); // recupero o nome da atual sessão
     };
 
     // Carregar informações em uma sessão
     if($totalRows_session>0){
-
+        $_SESSION['login_usuario']  =   $login_usuario;
+        $_SESSION['nivel_usuario']  =   $row_session['nivel_usuario'];
+        $_SESSION['nome_da_sessao'] =   session_name();
+        echo "<script>window.open('index.php','_self')</script>";
     }else{
         echo "<script>window.open('invasor.php','_self')</script>";
     };
