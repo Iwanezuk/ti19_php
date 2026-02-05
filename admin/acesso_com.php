@@ -24,5 +24,6 @@ if(!isset($_SESSION['nome_da_sessao'])OR($_SESSION['nome_da_sessao']!=$nome_da_s
 if(!isset($_SESSION['login_usuario'])){
     // se não existir, destruimos a sessão por segurança
     session_destroy();
-    header("Location: login.php"); exit;}
+    header("Location: login.php"); exit;
+};
 ?>
