@@ -23,6 +23,18 @@ if($_POST){
     $totalRows_session  =   mysqli_num_rows($lista_session);
 
     // Se a sessão não existir, inicia uma
+    if(!isset($_SESSION)){
+        $sessao_antiga  =   session_name("chuletaaa");
+        session_start();
+        $session_name_new   =   session_name(); recupero o nome da atual sessão
+    };
+
+    // Carregar informações em uma sessão
+    if($totalRows_session>0){
+
+    }else{
+        echo "<script>window.open('invasor.php','_self')</script>";
+    };
 
 };
 ?>
