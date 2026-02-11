@@ -1,6 +1,6 @@
 <?php
 // Incluindo o Sistema de autenticação
-include("acesso_com.php");
+include("acesso_sup.php");
 
 include("../Connections/conn_produtos.php");
 $consulta   =   "
