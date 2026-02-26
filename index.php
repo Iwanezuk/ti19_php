@@ -12,7 +12,7 @@
 
     <main class="container">
         <!-- CARROUSSEL -->
-        <?php include('carroussel.php'); ?>
+        <?php // include('carroussel.php'); ?>
 
         <!-- DESTAQUES -->
         <a name="destaques"></a>
